@@ -37,9 +37,14 @@ class FormController extends Controller
 
     public function delete($discId)
     {
-        $message = 'Успешно удаленно';
-        \App\Disc::where('id', $discId)
-            ->delete();
+        if(\App\Disc::where('id', $discId)->count() > 0){
+            \App\Disc::where('id', $discId)
+                ->delete();
+            $message = 'Успешно удаленно';
+        }else{
+            $message = 'Пластинка не найдена';
+        }
+
         return view('plates.succesfullUpdate', compact('message'));
     }
 

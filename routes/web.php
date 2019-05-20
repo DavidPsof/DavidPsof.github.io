@@ -13,9 +13,9 @@
 
 Route::get('/', 'DiscController@showAll');
 
-Route::get('/plate/{discId}', 'DiscController@showById');
+Route::get('/plate/{discId}/edit/', 'DiscController@showById');
 
-Route::get('/Delete/{discId}', 'FormController@delete');
+Route::get('/plate/{discId}/delete/', 'FormController@delete');
 
-Route::post('/Update/', 'FormController@update');
+Route::post('plate/update/', 'FormController@update');
 
